@@ -381,7 +381,7 @@ group { name: "e/modules/battery/popup";
                                 }
                                 text {
                                         font: FONT_BOLD;
-                                        size: 12;
+                                        size: 11;
                                         min: 1 1;
                                         ellipsis: -1;
                                         align: 0.0 0.5;
@@ -406,7 +406,7 @@ group { name: "e/modules/battery/popup";
                                 }
                                 text {
                                         font: FONT;
-                                        size: 10;
+                                        size: 11;
                                         align: 0.0 0.5;
                                         min: 1 1;
                                         ellipsis: -1;
