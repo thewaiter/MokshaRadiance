@@ -1032,6 +1032,169 @@ group { name: "e/widgets/border/pixel/border";
    }
 }
 
+group { name: "e/widgets/border/8pixel/border";
+   parts {
+      part { name: "client_clip"; type: RECT;
+         description { state: "default" 0.0;
+            rel1.to_y: "e.swallow.client";
+            rel2.to_y: "e.swallow.client";
+         }
+      }
+      part { name: "e.swallow.client"; type: SWALLOW;
+         description { state: "default" 0.0;
+            rel1.offset: 8 8;
+            rel2.offset: -9 -9;
+         }
+      }
+      part { name: "top"; type: RECT;
+         description { state: "default" 0.0;
+            color: 222 222 222 255;
+            align: 0.0 0.0;
+            max: 99999 8;
+         }
+         description { state: "focused" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+            color_class: "focus";
+         }
+      }
+      part { name: "bottom"; type: RECT;
+         description { state: "default" 0.0;
+            color: 222 222 222 255;
+            align: 0.0 1.0;
+            max: 99999 8;
+         }
+         description { state: "focused" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+            color_class: "focus";
+         }
+      }
+      part { name: "left"; type: RECT;
+         description { state: "default" 0.0;
+            color: 222 222 222 255;
+            align: 0.0 0.0;
+            max: 8 99999;
+         }
+         description { state: "focused" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+            color_class: "focus";
+         }
+      }
+      part { name: "right"; type: RECT;
+         description { state: "default" 0.0;
+            color: 222 222 222 255;
+            align: 1.0 0.0;
+            max: 8 99999;
+         }
+         description { state: "focused" 0.0;
+            inherit: "default" 0.0;
+            color: 255 255 255 255;
+            color_class: "focus";
+         }
+      }
+      part { name: "e.event.resize.r"; type: RECT;
+         description { state: "default" 0.0;
+            rel1.relative: 1.0 0.0;
+            rel2.relative: 1.0 1.0;
+            min: 8 0;
+            align: 1.0 1.0;
+            color: 0 0 0 0;
+            fixed: 1 1;
+         }
+      }
+      part { name: "e.event.resize.l"; type: RECT;
+         description { state: "default" 0.0;
+            rel1.relative: 0.0 0.0;
+            rel2.relative: 0.0 1.0;
+            min: 8 0;
+            align: 0.0 0.0;
+            color: 0 0 0 0;
+            fixed: 1 1;
+         }
+      }
+      part { name: "e.event.resize.tl"; type: RECT;
+         description { state: "default" 0.0;
+            rel2.relative: 0.0 0.0;
+            min: 32 8;
+            align: 0.0 0.0;
+            color: 0 0 0 0;
+         }
+      }
+      part { name: "e.event.resize.t"; type: RECT;
+         description { state: "default" 0.0;
+            rel1.relative: 1.0 0.0;
+            rel1.to_x: "e.event.resize.tl";
+            rel2.relative: 0.0 0.0;
+            rel2.to_x: "e.event.resize.tr";
+            min: 0 8;
+            align: 0.5 0.0;
+            color: 0 0 0 0;
+         }
+      }
+      part { name: "e.event.resize.tr"; type: RECT;
+         description { state: "default" 0.0;
+            rel1.relative: 1.0 0.0;
+            rel2.relative: 1.0 0.0;
+            min: 32 8;
+            align: 1.0 0.0;
+            color: 0 0 0 0;
+         }
+      }
+      part { name: "e.event.resize.bl"; type: RECT;
+         description { state: "default" 0.0;
+            rel1.relative: 0.0 1.0;
+            rel2.relative: 0.0 1.0;
+            min: 32 8;
+            align: 0.0 1.0;
+            color: 0 0 0 0;
+            fixed: 1 1;
+         }
+      }
+      part { name: "e.event.resize.b"; type: RECT;
+         description { state: "default" 0.0;
+            rel1.relative: 1.0 1.0;
+            rel1.to_x: "e.event.resize.tl";
+            rel2.relative: 0.0 1.0;
+            rel2.to_x: "e.event.resize.tr";
+            min: 0 8;
+            align: 0.5 1.0;
+            color: 0 0 0 0;
+            fixed: 0 1;
+         }
+      }
+      part { name: "e.event.resize.br"; type: RECT;
+         description { state: "default" 0.0;
+            rel1.relative: 1.0 1.0;
+            rel2.relative: 1.0 1.0;
+            min: 32 8;
+            align: 1.0 1.0;
+            color: 0 0 0 0;
+            fixed: 1 1;
+         }
+      }
+   }
+   programs {
+      program {
+         signal: "e,state,focused"; source: "e";
+         action: STATE_SET "focused" 0.0;
+         target: "top";
+         target: "bottom";
+         target: "left";
+         target: "right";
+      }
+      program {
+         signal: "e,state,unfocused"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "top";
+         target: "bottom";
+         target: "left";
+         target: "right";
+      }
+   }
+}
+
 group { name: "e/widgets/border/default/move";
    images.image: "img/popup.png" COMP;
    images.image: "img/ic_win_move.png" COMP;
