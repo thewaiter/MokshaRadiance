@@ -616,17 +616,21 @@ group { name: "e/modules/ibar/menu/item";
             rel2.offset: 2 -3;
             align: 0.0 0.5;
             aspect: 1.0 1.0; aspect_preference: BOTH;
-            min: 48 48;
-            max: 48 48;
+            min: 32 32;
+            max: 32 32;
          }
       }
       part { name: "base"; mouse_events: 0; type: RECT;
          description { state: "default" 0.0;
             color_class: "focus";
+            link.base: "e,state,unfocused" "e";
+            link.transition: ACCEL 0.1;
             visible: 0;
          }
-         description { state: "focus" 0.0;
+         description { state: "focused" 0.0;
             inherit: "default" 0.0;
+            link.base: "e,state,focused" "e";
+            link.transition: ACCEL 0.1;
             visible: 1;
          }
       }
@@ -637,7 +641,7 @@ group { name: "e/modules/ibar/menu/item";
 			  image.border: 2 2 2 2;
 			  visible: 0;
 		  }
-		  description { state: "focus" 0.0;
+		  description { state: "focused" 0.0;
             inherit: "default" 0.0;
             visible: 1;
          }
@@ -648,12 +652,20 @@ group { name: "e/modules/ibar/menu/item";
 			image.normal: "win_glow.png";
 			image.border: 9 9 9 9;
             image.middle: 0;
-			color: 0 0 0 255;
+			color: 40 40 40 0;
 			rel1.to: "e.swallow.icon";
 			rel2.to: "e.swallow.icon";
 			rel1.offset: -4 -4;
 			rel2.offset: 3 3;
+            visible: 0;
 		}
+           description { state: "focus" 0.0;
+            inherit: "default" 0.0;
+            rel1.offset: -4 -4;
+            rel2.offset: 3 3;
+            color: 40 40 40 192;
+            visible: 1;
+         }
 	  }
 	  part { name: "e.swallow.icon"; type: SWALLOW; mouse_events: 0;
          clip_to: "icon_clip";
@@ -669,8 +681,9 @@ group { name: "e/modules/ibar/menu/item";
             rel1.relative: 1.0 0.0;
             rel1.offset: 6 0;
             rel2.offset: -3 -3;
-            color: 255 255 255 255;
-            color3: 255 255 255 255;
+            color_class: "menu_title";
+            color: 46 52 54 255;
+            color3: 46 52 54 0;
             align: 0.0 0.0;
             color_class: "menu_item";
             min: 128 0;
@@ -704,17 +717,15 @@ group { name: "e/modules/ibar/menu/item";
          signal: "mouse,in"; source: "event";
          action: STATE_SET "focus" 0.0;
          target: "e.text.title";
-         target: "base";
-         target: "base_SH";
-         transition: LINEAR 0.0;
+         target: "icon_shadow";
+         transition: LINEAR 0.1;
       }
       program {
          signal: "mouse,out"; source: "event";
          action: STATE_SET "default" 0.0;
          target: "e.text.title";
-         target: "base";
-         target: "base_SH";
-         transition: LINEAR 0.0;
+         target: "icon_shadow";
+         transition: LINEAR 0.1;
       }
    }
 }
