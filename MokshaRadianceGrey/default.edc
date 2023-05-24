@@ -2,7 +2,7 @@
  *																	   *
  *							<RADIANCE THEME>						   *
  *																	   *
- *				The Moksha Port of the GTK Radiance theme.				   *
+ *				The Moksha Port of the GTK Radiance theme.			   *
  *				Written by Alberto "Duma" Verdoja					   *
  *		Theme builded starting with E17-E18-E19 default theme "Dark"   *
  *																	   *
@@ -18,8 +18,8 @@ data {
 	item: "theme/name"		"Radiance";
 	item: "theme/version"	"beta";
 	item: "theme/author"	"Alberto 'Duma' Verdoja & Jeff Hoogland";
-	item: "gtk-theme"		  "Radiance-Graphite";
-	//~ item: "icon-theme"    "Icons-Moksha-Radiance"; 
+	item: "gtk-theme"		"Radiance-Graphite";
+	item: "icon-theme"		"Icons-Moksha-Radiance";
 	// theme api version. from 1.10 on we will check version to avoid
 	// compat issues
 	item: "version"			"110";
