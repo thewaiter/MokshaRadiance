@@ -2,7 +2,7 @@ group { name: "e/modules/ibox/icon";
    alias: "e/modules/ibar/icon";
    // 1 or 0 if u want an icon holder to raise when the mouse (or keyboard) hilights it
    data.item: "raise_on_hilight" "0";
-   images.image: "img/led_tiny.png" COMP;
+   images.image: "img/glow_small.png" COMP;
 //   data.item: "item_list" "item item2 item3";
    parts {
       part { name: "item_clip"; type: RECT;
@@ -34,24 +34,42 @@ group { name: "e/modules/ibox/icon";
          }
       }
       part { name: "indicator";
-         description { state: "default";
-            min: 10 10;
-            max: 10 10;
-            rel1.relative: 1.0 1.0;
-            rel1.offset: -5 -5;
-            rel2.relative: 1.0 1.0;
-            rel2.offset: -4 -4;
-            color_class: "focus";
-            image.normal: "img/led_tiny.png";
-            color: 255 255 255 0;
-            visible: 0;
+           scale: 1;
+           description { state: "default";
+              rel1.relative: 1.0 1.0;
+              rel1.offset: -10 -10;
+              rel2.relative: 1.0 1.0;
+              rel2.offset: 0 0;
+              image.normal: "img/glow_small.png";
+              color: 255 255 255 0;
+              visible: 0;
+              offscale;
+           }
+           description { state: "visible" 0.0;
+              inherit: "default" 0.0;
+              color: 255 255 255 225;
+              visible: 1;
+           }
          }
-         description { state: "visible" 0.0;
-            inherit: "default" 0.0;
-            color: 255 255 255 255;
-            visible: 1;
+      part { name: "e.text.label"; type: TEXT; mouse_events: 0;
+           effect: NONE;
+           scale: 1;
+              description { state: "default" 0.0;
+              rel1.relative: 1.0 1.0;
+              rel1.offset: -8 -8;
+              rel2.relative: 1.0 1.0;
+              //~ color_class: "menu_item";
+              color: 4é 40 40 255;
+              min: 128 0;
+              text { font: "Sans:style=Bold"; size: 6;
+                 min: 1 1;
+                 ellipsis: -1;
+                 align: 0.5 0.5;
+                 text_class: "module_normal";
+              }
+              offscale;
+           }
          }
-      }
       part { name: "over"; type: RECT;
          description { state: "default" 0.0;
             color: 0 0 0 0;
