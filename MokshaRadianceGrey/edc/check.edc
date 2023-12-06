@@ -17,18 +17,33 @@ group { name: "e/widgets/check";
             color_class: "ilist_item_base";
          }
          description { state: "selected" 0.0;
-			inherit: "default" 0.0;
-			visible: 0;
+            inherit: "default" 0.0;
+            visible: 0;
          }
          description { state: "disabled" 0.0;
-			inherit: "default" 0.0;
-			color_class: "ilist_item_base";
+            inherit: "default" 0.0;
+            color_class: "ilist_item_base";
          }
       }
+      part { name: "focus";
+        description { state: "default" 0.0;
+           rel1.offset: -10 -2;
+           rel2.offset:  10  0;
+           color: 40 40 40 48;
+           image.normal: "img/box_glow.png";
+           image.border: 9 9 9 9;
+           visible: 0;
+           offscale;
+        }
+        description { state: "focused" 0.0;
+           inherit: "default" 0.0;
+           visible: 1;
+        }
+      }
       part { name: "base_selected"; mouse_events: 0;
-		clip_to: "check_disable_clip_default";
-		description { state: "default" 0.0;
-			image.normal: "img/check_base.png";
+        clip_to: "check_disable_clip_default";
+        description { state: "default" 0.0;
+            image.normal: "img/check_base.png";
             align: 0.0 0.5;
             min: 18 18;
             max: 18 18;
@@ -36,8 +51,8 @@ group { name: "e/widgets/check";
             color_class: "ilist_item_base";
          }
          description { state: "selected" 0.0;
-			inherit: "default" 0.0;
-			color_class: "focus";
+            inherit: "default" 0.0;
+            color_class: "focus";
          }
       }
       
@@ -45,33 +60,33 @@ group { name: "e/widgets/check";
       CLIP_SWITCH_CLIPTO("check", "base", "base", "default", "selected", "check_disable_clip_default")
       
       part { name: "check_disabled_SH"; mouse_events: 0;
-		clip_to: "check_disable_clip_disabled";
-		description { state: "default" 0.0;
-			image.normal: "img/check0_SH.png";
-			STAY_ON("base")
-		}
-		description { state: "selected" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "img/check_sel0_SH.png";
-		}
-      }     
+        clip_to: "check_disable_clip_disabled";
+        description { state: "default" 0.0;
+            image.normal: "img/check0_SH.png";
+            STAY_ON("base")
+        }
+        description { state: "selected" 0.0;
+            inherit: "default" 0.0;
+            image.normal: "img/check_sel0_SH.png";
+        }
+      }
       part { name: "check_SH"; mouse_events: 0;
-		clip_to: "check_clip_default";
-		 description { state: "default" 0.0;
-			image.normal: "img/check1_SH.png";
-			STAY_ON("base")
-		 }
+        clip_to: "check_clip_default";
+        description { state: "default" 0.0;
+            image.normal: "img/check1_SH.png";
+            STAY_ON("base")
+         }
          description { state: "prelight" 0.0;
             inherit: "default" 0.0;
             image.normal: "img/check3_SH.png";
          }
-	}
-	part { name: "check_sel_SH"; mouse_events: 0;
-		clip_to: "check_clip_selected";
-		 description { state: "default" 0.0;
-			image.normal: "img/check_sel1_SH.png";
-			STAY_ON("base")
-		 }
+    }
+    part { name: "check_sel_SH"; mouse_events: 0;
+        clip_to: "check_clip_selected";
+        description { state: "default" 0.0;
+            image.normal: "img/check_sel1_SH.png";
+            STAY_ON("base")
+        }
          description { state: "prelight" 0.0;
             inherit: "default" 0.0;
             image.normal: "img/check_sel3_SH.png";
@@ -80,47 +95,46 @@ group { name: "e/widgets/check";
             inherit: "default" 0.0;
             image.normal: "img/check_sel0_SH.png";
          }
-	}
-	
-      part { name: "e.text.label"; type: TEXT;
-         effect: SHADOW BOTTOM;
-         scale: 1;
-         description { state: "default" 0.0;
-            rel1.offset: 2 2;
-            rel1.to_x: "base";
-            rel1.relative: 1.0 0.0;
-            rel2.offset: -3 -3;
+    }
+    part { name: "e.text.label"; type: TEXT;
+        effect: SHADOW BOTTOM;
+        scale: 1;
+        description { state: "default" 0.0;
+           rel1.offset: 2 2;
+           rel1.to_x: "base";
+           rel1.relative: 1.0 0.0;
+           rel2.offset: -3 -3;
            color: 255 255 255 255;
-            color3: 255 255 255 255;
-            color_class: "check_text";
-            text { font: "Sans"; size: 12;
-               min: 1 1;
-               ellipsis: -1;
-               align: 0.0 0.5;
-               text_class: "check_button";
-            }
-         }
-         description { state: "disabled" 0.0;
-            inherit: "default" 0.0;
-            color: 255 255 255 255;
-            color3: 255 255 255 255;
-            color_class: "check_text_disabled";
-         }
-      }
-      part { name: "event"; type: RECT;
-         ignore_flags: ON_HOLD;
-         description { state: "default" 0.0;
-            color: 0 0 0 0;
-         }
-         description { state: "disabled" 0.0;
-            inherit: "default" 0.0;
-            visible: 0;
-         }
-      }
+           color3: 255 255 255 255;
+           color_class: "check_text";
+           text { font: "Sans"; size: 12;
+              min: 1 1;
+              ellipsis: -1;
+              align: 0.0 0.5;
+              text_class: "check_button";
+           }
+        }
+        description { state: "disabled" 0.0;
+           inherit: "default" 0.0;
+           color: 255 255 255 255;
+           color3: 255 255 255 255;
+           color_class: "check_text_disabled";
+        }
+     }
+     part { name: "event"; type: RECT;
+        ignore_flags: ON_HOLD;
+        description { state: "default" 0.0;
+           color: 0 0 0 0;
+        }
+        description { state: "disabled" 0.0;
+           inherit: "default" 0.0;
+           visible: 0;
+        }
+     }
    }
    programs {
-		OVER("check_SH","event","default","prelight")
-		OVER("check_sel_SH","event","default","prelight")
+      OVER("check_SH","event","default","prelight")
+      OVER("check_sel_SH","event","default","prelight")
       program {
          signal: "e,state,checked"; source: "e";
          action: STATE_SET "selected" 0.0;
@@ -159,6 +173,18 @@ group { name: "e/widgets/check";
          target: "check_disable_clip_default";
          target: "e.text.label";
       }
+      program {
+        name: "focus_in";
+        signal: "e,state,focused"; source: "e";
+        action: STATE_SET "focused" 0.0;
+        target: "focus";
+     }
+     program {
+        name: "focus_out";
+        signal: "e,state,unfocused"; source: "e";
+        action: STATE_SET "default" 0.0;
+        target: "focus";
+     } 
    }
 }
 

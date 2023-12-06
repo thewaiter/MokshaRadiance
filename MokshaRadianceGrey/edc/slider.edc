@@ -1,10 +1,10 @@
 group { name: "e/widgets/slider_horizontal";
-	images.image: "img/slider_bg.png" COMP;
-	images.image: "img/slider_bg_SH.png" COMP;
-	images.image: "img/slider.png" COMP;
-	images.image: "img/slider0.png" COMP;
-	images.image: "img/slider2.png" COMP;
-	images.image: "img/slider3.png" COMP;
+    images.image: "img/slider_bg.png" COMP;
+    images.image: "img/slider_bg_SH.png" COMP;
+    images.image: "img/slider.png" COMP;
+    images.image: "img/slider0.png" COMP;
+    images.image: "img/slider2.png" COMP;
+    images.image: "img/slider3.png" COMP;
    parts {
       part { name: "bg"; type: RECT;
          scale: 1;
@@ -18,6 +18,21 @@ group { name: "e/widgets/slider_horizontal";
             rel2.offset: -2 -1;
             rel2.to_x: "e.text.label";
          }
+      }
+      part { name: "focus";
+        description { state: "default" 0.0;
+           rel1.offset: -10 -6;
+           rel2.offset:  10  6;
+           color: 40 40 40 48;
+           image.normal: "img/box_glow.png";
+           image.border: 9 9 9 9;
+           visible: 0;
+           offscale;
+        }
+        description { state: "focused" 0.0;
+           inherit: "default" 0.0;
+           visible: 1;
+        }
       }
       part { name: "base"; mouse_events: 0;
          description { state: "default" 0.0;
@@ -33,7 +48,7 @@ group { name: "e/widgets/slider_horizontal";
       }
       
       part { name: "base_active"; mouse_events: 0;
-		description { state: "default" 0.0;
+        description { state: "default" 0.0;
             rel1.to: "base";
             rel2.to_x: "slider";
             rel2.to_y: "base";
@@ -47,9 +62,9 @@ group { name: "e/widgets/slider_horizontal";
             fixed: 0 1;
          }
         description { state: "disabled" 0.0;
-			inherit: "default" 0.0;
-			color_class: "none";
-			color: 0 0 0 60;
+            inherit: "default" 0.0;
+            color_class: "none";
+            color: 0 0 0 60;
         }
       }
       
@@ -138,9 +153,9 @@ group { name: "e/widgets/slider_horizontal";
             image.normal: "img/slider0.png";
          }
          description { state: "over" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "img/slider2.png";
-		 }
+            inherit: "default" 0.0;
+            image.normal: "img/slider2.png";
+         }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
             image.normal: "img/slider3.png";
@@ -182,7 +197,7 @@ group { name: "e/widgets/slider_horizontal";
       }
    }
    programs {
-	   OVER("slider","e.dragable.slider","default","over")
+      OVER("slider","e.dragable.slider","default","over")
       program {
          signal: "mouse,down,1"; source: "e.dragable.slider";
          action: STATE_SET "clicked" 0.0;
@@ -225,16 +240,28 @@ group { name: "e/widgets/slider_horizontal";
          target: "clip1";
          target: "clip2";
       }
+      program {
+         name: "focus_in";
+         signal: "e,state,focused"; source: "e";
+         action: STATE_SET "focused" 0.0;
+         target: "focus";
+      }
+      program {
+         name: "focus_out";
+         signal: "e,state,unfocused"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "focus";
+      } 
    }
 }
 
 group { name: "e/widgets/slider_vertical";
-  	images.image: "img/slider_v_bg.png" COMP;
-	images.image: "img/slider_bg_v_SH.png" COMP;
-	images.image: "img/slider_v.png" COMP;
-	images.image: "img/slider0_v.png" COMP;
-	images.image: "img/slider2_v.png" COMP;
-	images.image: "img/slider3_v.png" COMP;
+    images.image: "img/slider_v_bg.png" COMP;
+    images.image: "img/slider_bg_v_SH.png" COMP;
+    images.image: "img/slider_v.png" COMP;
+    images.image: "img/slider0_v.png" COMP;
+    images.image: "img/slider2_v.png" COMP;
+    images.image: "img/slider3_v.png" COMP;
    
    parts {
       part { name: "bg"; type: RECT;
@@ -250,7 +277,21 @@ group { name: "e/widgets/slider_vertical";
             rel2.to_y: "e.text.label";
          }
       }
-      
+      part { name: "focus";
+        description { state: "default" 0.0;
+           rel1.offset: -10 -6;
+           rel2.offset:   8  6;
+           color: 40 40 40 48;
+           image.normal: "img/box_glow.png";
+           image.border: 9 9 9 9;
+           visible: 0;
+           offscale;
+        }
+        description { state: "focused" 0.0;
+           inherit: "default" 0.0;
+           visible: 1;
+        }
+      }
       part { name: "base"; mouse_events: 0;
          description { state: "default" 0.0;
             STAY_ON("bg")
@@ -265,7 +306,7 @@ group { name: "e/widgets/slider_vertical";
       }
       
       part { name: "base_active"; mouse_events: 0;
-		description { state: "default" 0.0;
+        description { state: "default" 0.0;
             rel1.to_x: "base";
             rel1.to_y: "slider";
             rel1.relative: 0.0 0.5;
@@ -279,9 +320,9 @@ group { name: "e/widgets/slider_vertical";
             fixed: 1 0;
          }
         description { state: "disabled" 0.0;
-			inherit: "default" 0.0;
-			color_class: "none";
-			color: 0 0 0 60;
+            inherit: "default" 0.0;
+            color_class: "none";
+            color: 0 0 0 60;
         }
       }
       PART_SHINE("base", "base", "img/slider_bg_v_SH.png", 0 0 1 1)      
@@ -368,9 +409,9 @@ group { name: "e/widgets/slider_vertical";
             image.normal: "img/slider0_v.png";
          }
          description { state: "over" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "img/slider2_v.png";
-		 }
+            inherit: "default" 0.0;
+            image.normal: "img/slider2_v.png";
+         }
          description { state: "clicked" 0.0;
             inherit: "default" 0.0;
             image.normal: "img/slider3_v.png";
@@ -453,6 +494,18 @@ group { name: "e/widgets/slider_vertical";
          target: "slider";
          target: "clip1";
          target: "clip2";
+      }
+      program {
+         name: "focus_in";
+         signal: "e,state,focused"; source: "e";
+         action: STATE_SET "focused" 0.0;
+         target: "focus";
+      }
+      program {
+         name: "focus_out";
+         signal: "e,state,unfocused"; source: "e";
+         action: STATE_SET "default" 0.0;
+         target: "focus";
       }
    }
 }
