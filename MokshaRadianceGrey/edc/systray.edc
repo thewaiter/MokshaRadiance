@@ -4,6 +4,7 @@ images.image: "systray_expand_vert.png" COMP;
 group { name: "e/modules/systray/main";
    alias: "e/modules/systray/main/default";
    alias: "e/modules/systray/main/invisible";
+   alias: "e/modules/systray/main/alternate";
    data {
 	item: "default" RADCONF_SYS_BG;
 	item: "inset" RADCONF_SYS_BG;
