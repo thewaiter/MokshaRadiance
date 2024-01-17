@@ -1,30 +1,30 @@
 group { name:"e/modules/tasks/item";
-  
+
    parts {
-	part { name: "base"; type: RECT;
-		description { state: "default" 0.0;
-			color: TRANSPARENT;
-			rel1.offset: 1 0;
-			rel2.offset: 0 0;
-			color_class: "shelf_base";
-		}
-		description { state: "clicked" 0.0;
-			inherit: "default" 0.0;
-			color: 191 191 191 255;
-		}
-	} 
-	 
-	part { name: "shine"; type: RECT;
-		description { state: "default" 0.0;
-			color: TRANSPARENT;
-			rel1.to: "base";
-			rel2.to: "base";
-		}
-		description { state: "prelight" 0.0;
-			inherit: "default" 0.0;
-			color: 255 255 255 125;
-		}
-	}
+       part { name: "base"; type: RECT;
+          description { state: "default" 0.0;
+              //~ color: TRANSPARENT;
+              color: 250 250 250 255;
+              rel1.offset: 1 0;
+              rel2.offset: 0 0;
+              color_class: "shelf_base";
+          }
+          description { state: "clicked" 0.0;
+              inherit: "default" 0.0;
+              color: 191 191 191 255;
+          }
+       }
+      part { name: "shine"; type: RECT;
+          description { state: "default" 0.0;
+              color: TRANSPARENT;
+              rel1.to: "base";
+              rel2.to: "base";
+          }
+          description { state: "prelight" 0.0;
+              inherit: "default" 0.0;
+              color: 255 255 255 125;
+          }
+      }
       part { name: "e.text.label"; type: TEXT; mouse_events: 0;
          effect: SHADOW BOTTOM;
          scale: 1;
@@ -45,9 +45,9 @@ group { name:"e/modules/tasks/item";
             }
          }
          description { state: "clicked" 0.0;
-			inherit: "default" 0.0;
-			visible: 0;
-		 }
+            inherit: "default" 0.0;
+            visible: 0;
+         }
          description { state: "iconic" 0.0;
             inherit: "default" 0.0;
             color: 255 255 255 125;
@@ -56,10 +56,10 @@ group { name:"e/modules/tasks/item";
       }
       
       part { name: "label_focused"; type: TEXT; mouse_events: 0;
-		 effect: SHADOW BOTTOM;
+         effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
-			visible: 0;
+            visible: 0;
             rel1.relative: 1.0 0.0;
             rel1.offset: 2 3;
             rel1.to_x: "icon2";
@@ -77,9 +77,9 @@ group { name:"e/modules/tasks/item";
             }
          }
          description { state: "clicked" 0.0;
-			inherit: "default" 0.0;
-			visible: 1;
-		 }
+            inherit: "default" 0.0;
+            visible: 1;
+         }
       }
       part { name: "icon"; type: SPACER;
          description { state: "default" 0.0;
@@ -156,7 +156,7 @@ group { name:"e/modules/tasks/item";
 
    }
    programs {
-	  	OVER("shine","event","default","prelight")	   
+      OVER("shine","event","default","prelight")
       program {
          signal: "mouse,down,1"; source: "event";
          action: STATE_SET "clicked" 0.0;
@@ -238,14 +238,11 @@ group { name:"e/modules/tasks/item";
 group { name:"e/modules/tasks/item_vert";
    inherit: "e/modules/tasks/item";
    parts {
-      	  part { name: "base";
-		  description { state: "default" 0.0;
-         
-            color_class: "shelf_base";
+      part { name: "base";
+         description { state: "default" 0.0;
+         color_class: "shelf_base";
          }
-	  }
-	  
-	
+      }
       part { name: "e.text.label";
          description { state: "default" 0.0;
             rel1.offset: 0 0;
@@ -258,11 +255,11 @@ group { name:"e/modules/tasks/item_vert";
             inherit: "default" 0.0;
          }
       }
-            part { name: "label_focused"; type: TEXT; mouse_events: 0;
-		 effect: SHADOW BOTTOM;
+      part { name: "label_focused"; type: TEXT; mouse_events: 0;
+         effect: SHADOW BOTTOM;
          scale: 1;
          description { state: "default" 0.0;
-			visible: 0;
+            visible: 0;
             rel1.relative: 1.0 0.0;
             rel1.offset: 2 3;
             rel1.to_x: "icon2";
@@ -280,18 +277,17 @@ group { name:"e/modules/tasks/item_vert";
             }
          }
          description { state: "clicked" 0.0;
-			inherit: "default" 0.0;
-			visible: 1;
-		 }
+            inherit: "default" 0.0;
+            visible: 1;
+         }
       }
-      
       part { name: "icon";
          description { state: "default" 0.0;
             align: 0.5 0.5;
             rel1.offset: 2 2;
             rel2.relative: 1.0 1.0;
             rel2.offset: -3 -3;
-         }  
+         }
       }
    }
 }
