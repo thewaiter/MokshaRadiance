@@ -424,7 +424,7 @@ group { name: "e/modules/ibox/drop_overlay";
    parts {
       part { name: "drop0"; mouse_events: 0;
          description { state: "default" 0.0;
-			color_class: "focus";
+            color_class: "focus";
             image.normal: "img/mini_white_glow_arrow_0.png";
             rel1.offset: -10 -10;
             rel1.relative: 0.0 0.0;
@@ -546,19 +546,19 @@ group { name: "e/modules/ibox/drop_overlay";
 }
 
 group { name: "e/modules/ibar/separator/default";
-	inherit: "e/widgets/menu/default/separator";
-	parts {
-		part { name: "base";
-			description { state: "default" 0.0;
-			min: 1 0; max: 1 99999;
-			}
-		}
-	}
+    inherit: "e/widgets/menu/default/separator";
+    parts {
+       part { name: "base";
+            description { state: "default" 0.0;
+            min: 1 0; max: 1 99999;
+            }
+       }
+    }
 }
 
 group { name: "e/modules/ibar/separator/horizontal";
-	inherit: "e/widgets/menu/default/separator";
-	parts {
+    inherit: "e/widgets/menu/default/separator";
+    parts {
       part { name: "base";
          description { state: "default" 0.0;
             min: 0 1; max: 99999 1;
@@ -589,14 +589,14 @@ group { name: "e/modules/ibar/menu";
          }
       }
       part { name: "bg"; type: RECT; mouse_events: 0;
-		clip_to: "clip";
+        clip_to: "clip";
          description { state: "default" 0.0;
             color_class: "menu_base";
             STAY_ON("sizer")
          }
       }
       part { name: "bg_SH"; mouse_events: 0;
-		clip_to: "clip";
+        clip_to: "clip";
          description { state: "default" 0.0;
             image.normal: "img/menu_bg_SH.png";
             STAY_ON("bg")
@@ -680,30 +680,30 @@ group { name: "e/modules/ibar/menu/item";
          }
       }
       part { name: "base_SH"; type: IMAGE; mouse_events: 0;
-		  description { state: "default" 0.0;
-			STAY_ON("base")
-			  image.normal: "img/menu_sel_SH.png";
-			  image.border: 2 2 2 2;
-			  visible: 0;
-		  }
-		  description { state: "focused" 0.0;
+          description { state: "default" 0.0;
+            STAY_ON("base")
+              image.normal: "img/menu_sel_SH.png";
+              image.border: 2 2 2 2;
+              visible: 0;
+          }
+          description { state: "focused" 0.0;
             inherit: "default" 0.0;
             visible: 1;
          }
-	  }
-	  part { name: "icon_shadow"; mouse_events: 0;
-		clip_to: "icon_clip";
-		description { state: "default" 0.0;
-			image.normal: "win_glow.png";
-			image.border: 9 9 9 9;
+      }
+      part { name: "icon_shadow"; mouse_events: 0;
+        clip_to: "icon_clip";
+        description { state: "default" 0.0;
+            image.normal: "win_glow.png";
+            image.border: 9 9 9 9;
             image.middle: 0;
-			color: 40 40 40 0;
-			rel1.to: "e.swallow.icon";
-			rel2.to: "e.swallow.icon";
-			rel1.offset: -4 -4;
-			rel2.offset: 3 3;
+            color: 40 40 40 0;
+            rel1.to: "e.swallow.icon";
+            rel2.to: "e.swallow.icon";
+            rel1.offset: -4 -4;
+            rel2.offset: 3 3;
             visible: 0;
-		}
+        }
            description { state: "focus" 0.0;
             inherit: "default" 0.0;
             rel1.offset: -4 -4;
@@ -711,8 +711,8 @@ group { name: "e/modules/ibar/menu/item";
             color: 40 40 40 192;
             visible: 1;
          }
-	  }
-	  part { name: "e.swallow.icon"; type: SWALLOW; mouse_events: 0;
+      }
+      part { name: "e.swallow.icon"; type: SWALLOW; mouse_events: 0;
          clip_to: "icon_clip";
          description { state: "default";
             rel1.to: "icon";
