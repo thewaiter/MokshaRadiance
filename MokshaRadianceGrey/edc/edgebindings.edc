@@ -19,7 +19,7 @@ group { name: "e/modules/conf_edgebindings/selection";
       part { name: "e.swallow.background";
          type: SWALLOW;
          description { state: "default" 0.0;
-            min: 160 120;
+            min: 160 160;
             fixed: 1 1;
             rel1.offset: 4 4;
             rel2.relative: 0.4 1.0;
@@ -216,7 +216,7 @@ group { name: "e/modules/conf_edgebindings/selection";
                to_y: "e.text.description";
             }
             rel2 {
-               offset: -50 24;
+               offset: -50 4;
                to_y: "e.text.description";
             }
             box { layout: "horizontal";
