@@ -226,22 +226,6 @@ group { name: "e/modules/conf_edgebindings/selection";
             }
          }
       }
-      
-      part { name: "e.swallow.check"; type: SWALLOW;
-         description { state: "default" 0.0;
-            rel1 {
-relative: 1 1;
-offset: 5 4;
-to_x: "e.swallow.background";
-to_y: "e.text.description";
-            }
-            rel2 {
-relative: 1 1;
-offset: -5 24;
-to_y: "e.text.description";
-            }
-         }
-      }
       part { name: "e.swallow.slider"; type: SWALLOW;
          description { state: "default" 0.0;
             rel1 {
@@ -260,11 +244,11 @@ to_y: "e.text.description";
          description { state: "default" 0.0;
             rel1 {
                relative: 1 0;
-               offset: 80 4;
+               offset: 50 4;
                to_x: "e.edge.right";
             }
             rel2 {
-               offset: -80 -45;
+               offset: -50 -45;
             }
             color: 255 255 255 255;
             color3: 255 255 255 255;
