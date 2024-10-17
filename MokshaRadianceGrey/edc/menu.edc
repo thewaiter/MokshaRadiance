@@ -84,7 +84,7 @@ group { name: "e/widgets/menu/default/separator";
    parts {
       part { name: "base"; type: RECT;
          description { state: "default" 0.0;
-			color: 0 0 0 20;
+            color: 0 0 0 20;
             rel1.offset: 5 2;
             rel2.offset: -6 -3;
             min: 0 1; max: 99999 1;
