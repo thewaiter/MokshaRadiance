@@ -1,3 +1,3 @@
 #!/bin/sh
-edje_cc default.edc -o ../MokshaRadianceGrey.edj
-chmod 644 ../MokshaRadianceGrey.edj
+edje_cc default.edc -o ../MokshaRadiance.edj
+chmod 644 ../MokshaRadiance.edj
