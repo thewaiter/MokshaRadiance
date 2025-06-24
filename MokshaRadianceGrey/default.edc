@@ -22,9 +22,10 @@ data {
 	item: "icon-theme"		"MokshaRadiance";
 	// theme api version. from 1.10 on we will check version to avoid
 	// compat issues
-	item: "version"			"110";
+	item: "version"			"125";
 }
- 
+
+ efl_version: 1 25;
 externals.external: "elm";
 
 
