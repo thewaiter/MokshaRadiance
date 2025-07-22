@@ -389,8 +389,10 @@ group { name: "e/fileman/default/icon/fixed";
       }
       part { name: "sel_bg"; type: IMAGE;
           description { state: "default" 0.0;
-              rel1.to: "label0"; rel2.to: "label0";
-              rel1.offset: -1 -1; rel2.offset: 1 1;
+              rel1.to: "label0";
+              rel2.to: "label0";
+              rel1.offset: -1 -1;
+              rel2.offset: 1 1;
               color: 255 255 255 220;
               color_class: "focus";
               image.normal: "img/fileman_sel_bg.png";
@@ -731,10 +733,10 @@ group { name: "e/fileman/desktop/icon/fixed";
         part { name: "label0";
             description { state: "default" 0.0;
             //set min 30 for x coordinates to have more horizontal space:
-            //set max 54 for y coordinates to have more vertical space:
+            //set max 34 for y coordinates to have more vertical space:
             //I prefer desktop Icons have a displayable name
                 min: 30 20;
-                max: 99999 54;
+                max: 99999 34;
             }
         }
         part { name: "sel_bg";
