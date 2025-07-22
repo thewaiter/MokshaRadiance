@@ -171,6 +171,10 @@ group { name: "e/widgets/toolbar/item";
             inherit: "default" 0.0;
             visible: 1;
          }
+         description { state: "selected" 0.0;
+            inherit: "default" 0.0;
+            visible: 1;
+         }
       }
       part { name: "e.swallow.icon"; type: SWALLOW;
          description { state: "default" 0.0;
@@ -238,7 +242,7 @@ group { name: "e/widgets/toolbar/item";
             visible: 1;
          }
       }
-      
+
       part { name: "event"; type: RECT;
          ignore_flags: ON_HOLD;
          description { state: "default" 0.0;
@@ -247,7 +251,7 @@ group { name: "e/widgets/toolbar/item";
       }
    }
    programs {
-	  OVER("base","event","default","hover") 	   
+      OVER("base","event","default","hover")
       program {
          signal: "e,icon,disabled"; source: "e";
          action: STATE_SET "noicon" 0.0;
@@ -265,6 +269,7 @@ group { name: "e/widgets/toolbar/item";
          action: STATE_SET "selected" 0.0;
          target: "e.text.label";
          target: "label2";
+         target: "base";
 
       }
       program {
@@ -272,6 +277,7 @@ group { name: "e/widgets/toolbar/item";
          action: STATE_SET "default" 0.0;
          target: "e.text.label";
          target: "label2";
+         target: "base";
 
       }
       program {
