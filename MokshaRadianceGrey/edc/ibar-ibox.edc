@@ -652,7 +652,6 @@ group { name: "e/modules/ibar/menu";
 }
 
 group { name: "e/modules/ibar/menu/item";
-
    parts {
       part { name: "icon"; type: SPACER;
          scale: 1;
@@ -712,7 +711,7 @@ group { name: "e/modules/ibar/menu/item";
             visible: 1;
          }
       }
-      part { name: "e.swallow.icon"; type: SWALLOW; mouse_events: 0;
+      part { name: "e.swallow.icon"; type: SWALLOW;
          clip_to: "icon_clip";
          description { state: "default";
             rel1.to: "icon";
@@ -763,6 +762,7 @@ group { name: "e/modules/ibar/menu/item";
          }
       }
       part { name: "event"; type: RECT;
+         repeat_events: 1;
          description { state: "default";
             color: 0 0 0 0;
          }
