@@ -15,17 +15,17 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
  
 data {
-	item: "theme/name"		"Radiance";
-	item: "theme/version"	"beta";
-	item: "theme/author"	"Alberto 'Duma' Verdoja & Jeff Hoogland";
-	item: "gtk-theme"		"Radiance-Graphite";
-	item: "icon-theme"		"MokshaRadiance";
+	item: "theme/name"      "Radiance";
+	item: "theme/version"   "beta";
+	item: "theme/author"    "Alberto 'Duma' Verdoja & Jeff Hoogland";
+	item: "gtk-theme"       "Radiance-Graphite";
+	item: "icon-theme"      "MokshaRadiance";
 	// theme api version. from 1.10 on we will check version to avoid
 	// compat issues
-	item: "version"			"125";
+	item: "version"         "125";
 }
 
- efl_version: 1 25;
+efl_version: 1 25;
 externals.external: "elm";
 
 

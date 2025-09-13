@@ -196,7 +196,6 @@ group { name: "e/modules/clock/digital";
 			    restart_clock();
 			}
 		}
-
 		program { name: "secon";
 			signal: "e,state,seconds,on";
 			source: "e";
@@ -254,7 +253,7 @@ group { name: "e/modules/clock/digital";
 			}
 		}
 	}
-   }
+}
 
 group { name: "e/modules/clock/main";
    set { name: "clock_base.png";
@@ -283,8 +282,6 @@ group { name: "e/modules/clock/main";
                custom_state(PART:"seconds", "default", 0.0);
                set_state_val(PART:"seconds", STATE_MAP_ROT_Z, (v * 360.0) / 60.0);
                set_state(PART:"seconds", "custom", 0.0);
-               
-
             }
             else {
                tim = timer(60.0 - (second), "clock_cb", 1);
@@ -298,7 +295,6 @@ group { name: "e/modules/clock/main";
             custom_state(PART:"hours", "default", 0.0);
             set_state_val(PART:"hours", STATE_MAP_ROT_Z, ((float(hour) + (float(minute) / 60.0)) * 360.0) / 12.0);
             set_state(PART:"hours", "custom", 0.0);
-            
          }
    }
    parts {   
@@ -310,7 +306,6 @@ group { name: "e/modules/clock/main";
             image.normal: "clock_base.png";
          }
       }
-      
       part { name: "seconds"; mouse_events: 0;
          description { state: "default" 0.0;
             image.normal: "img/clock_min144.png";
@@ -351,7 +346,7 @@ group { name: "e/modules/clock/main";
                rotation.center: "base";
             }
          }
-      }      
+      }
    }
    programs {
       program {
@@ -467,7 +462,7 @@ group { name: "e/modules/clock/calendar/day";
       }
    }
    parts {
-     part { name: "day"; type: RECT;
+      part { name: "day"; type: RECT;
              mouse_events: 1;
              description { state: "default" 0.0;
                color: 0 0 0 0;
@@ -550,7 +545,6 @@ group { name: "e/modules/clock/calendar/day";
             evalstate();
          }
       }
-      
       program {
          signal: "e,state,today"; source: "e";
          script {
@@ -567,7 +561,6 @@ group { name: "e/modules/clock/calendar/day";
             evalstate();
          }
       }
-      
       program {
          signal: "e,state,hidden"; source: "e";
          script {
@@ -588,12 +581,11 @@ group { name: "e/modules/clock/calendar/day";
          signal: "e,state,week"; source: "e";
          action: STATE_SET "weeknumb" 0.0;
          target: "e.text.label";
-      }  
+      }
    }
 }
 
 group { name: "e/modules/clock/calendar";
-
    images.image: "img/arrow_left.png" COMP;
    images.image: "img/arrow.png" COMP;
    parts {
@@ -726,7 +718,6 @@ group { name: "e/modules/clock/calendar";
             color_class: "label_text";
          }
       }
-      
       part { name: "e.table.daynames"; type: TABLE;
          description { state: "default" 0.0;
             fixed: 0 1;
@@ -755,7 +746,7 @@ item { \
    align: -1.0 -1.0; \
 }
                D(0) D(1) D(2) D(3) D(4) D(5) D(6) D(7)
-#undef D                 
+#undef D
             }
          }
       }
